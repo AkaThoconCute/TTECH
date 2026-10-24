@@ -1,0 +1,11 @@
+@Auth.AppHost_HostAddress = http://localhost:5093
+
+### Index API
+
+GET {{Auth.AppHost_HostAddress}}/
+Accept: application/json
+
+### Health Check API
+
+GET {{Auth.AppHost_HostAddress}}/health
+Accept: application/json
