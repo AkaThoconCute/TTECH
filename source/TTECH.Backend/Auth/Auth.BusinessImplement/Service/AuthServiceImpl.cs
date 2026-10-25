@@ -73,52 +73,5 @@ namespace Auth.BusinessImplement.Service
 
       return user;
     }
-
-    #region Verify OTP API
-    public Task<ServiceResult<int>> SendOTPVerificationAsync(SendOTPVerificationRequest sendOTPVerificationRequest)
-    {
-      // 1. Validate request
-      bool isEmailExists = userService.IsEmailExists(sendOTPVerificationRequest.Email);
-      if (!isEmailExists)
-      {
-        return Task.FromResult(ServiceResult.FromError<int>(Errors.EmailNotFound));
-      }
-
-      // 2. Generate OTP
-      int otp = GenerateOTP();
-      userService.SaveOTP(sendOTPVerificationRequest.Email, otp);
-
-      // 3. Send OTP to email
-      userService.SendOTPEmail(sendOTPVerificationRequest.Email, otp);
-      
-      return Task.FromResult(ServiceResult.FromResult(1));
-    }
-
-    public Task<ServiceResult<TokensResponse>> VerifyOTPAsync(VerifyOTPRequest verifyOTPRequest)
-    {
-      // 1. Validate request
-      bool isEmailExists = userService.IsEmailExists(verifyOTPRequest.Email);
-      if (!isEmailExists)
-      {
-        return Task.FromResult(ServiceResult.FromError<bool>(Errors.EmailNotFound));
-      }
-      
-      // 2. Verify OTP
-      int? savedOTP = userService.GetSavedOTP(verifyOTPRequest.Email);
-      if (savedOTP is null || savedOTP != int.Parse(verifyOTPRequest.OTP))
-      {
-        return Task.FromResult(ServiceResult.FromError<bool>(Errors.InvalidOTP));
-      }
-
-      // 3. Return authentication result  
-            TokensResponse? tokens = tokenService.GenerateTokenPair(user!);
-      if (tokens is null)
-      {
-        return ServiceResult.FromError<TokensResponse>(Errors.LogInError);
-      }
-
-      return ServiceResult.FromResult(tokens!);
-    }
-    #endregion
   }
 }

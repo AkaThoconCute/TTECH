@@ -1,4 +1,4 @@
-﻿using Auth.AppHost.Context;
+﻿using Auth.RepositoryImplement.Context;
 using Auth.RepositoryContract.Entity;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;

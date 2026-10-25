@@ -7,7 +7,5 @@ namespace Auth.BusinessContract.Service
   {
     public Task<ServiceResult<TokensResponse>> SignUpAsync(SignUpRequest signUpRequest);
     public Task<ServiceResult<TokensResponse>> SignInAsync(SignInRequest logInRequest);
-    public Task<ServiceResult<int>> SendOTPVerificationAsync(SendOTPVerificationRequest sendOTPVerificationRequest);
-    public Task<ServiceResult<TokensResponse>> VerifyOTPAsync(VerifyOTPRequest verifyOTPRequest);
   }
 }

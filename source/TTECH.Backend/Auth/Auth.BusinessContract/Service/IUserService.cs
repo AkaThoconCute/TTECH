@@ -6,6 +6,8 @@ namespace Auth.BusinessContract.Service
 {
   public interface IUserService
   {
-    public Task<CoreUser?> CreateUser(SignUpRequest signupRequest, RoleEnum role = RoleEnum.User);
+    public Task<CoreUser?> CreateUser(
+      SignUpRequest signupRequest, 
+      RoleEnum role = RoleEnum.User);
   }
 }

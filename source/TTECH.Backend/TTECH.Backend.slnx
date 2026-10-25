@@ -5,6 +5,7 @@
     <Project Path="Auth/Auth.BusinessImplement/Auth.BusinessImplement.csproj" Id="464056f3-6636-4354-9a24-e6c04202f2c5" />
     <Project Path="Auth/Auth.Controllers/Auth.Controllers.csproj" />
     <Project Path="Auth/Auth.RepositoryContract/Auth.RepositoryContract.csproj" Id="bd850064-becd-4bed-a3bf-a6cfbe2c5fc7" />
+    <Project Path="Auth/Auth.RepositoryImplement/Auth.RepositoryImplement.csproj" Id="932d074e-4681-4fc2-99c3-333bbdf33100" />
     <Project Path="Auth/Auth.Tests/Auth.Tests.csproj" />
   </Folder>
   <Folder Name="/Common/">

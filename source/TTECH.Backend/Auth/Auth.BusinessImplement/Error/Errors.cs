@@ -32,5 +32,13 @@ namespace Auth.BusinessImplement.Error
       Message = "Unable to log in due to a technical error. Service will be back soon.",
       HttpStatusCode = StatusCodes.Status500InternalServerError
     };
+
+    // Deliberately vague: never reveal whether the email exists, the code expired, or attempts ran out.
+    public static readonly CustomError InvalidOTP = new()
+    {
+      Code = 2003,
+      Message = "The verification code is invalid or has expired. Please request a new code.",
+      HttpStatusCode = StatusCodes.Status400BadRequest
+    };
   }
 }

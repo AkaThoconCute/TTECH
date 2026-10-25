@@ -25,22 +25,5 @@ namespace Auth.Controllers.Controllers
       var result = await authService.SignInAsync(signInRequest);
       return result;
     }
-
-    #region Verify OTP API
-    [HttpPost]
-    public async Task<IServiceResult> SendOTPVerificationAsync([FromBody] SendOTPVerificationRequest sendOTPVerificationRequest)
-    {
-      var result = await authService.SendOTPVerificationAsync(sendOTPVerificationRequest);
-      return result;
-    }
-
-    [HttpPost]
-    public async Task<IServiceResult> VerifyOTPAsync([FromBody] VerifyOTPRequest verifyOTPRequest)
-    {
-      var result = await authService.VerifyOTPAsync(verifyOTPRequest);
-      return result;
-    }
-    #endregion
-
   }
 }

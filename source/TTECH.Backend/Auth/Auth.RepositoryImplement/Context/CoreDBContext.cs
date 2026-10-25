@@ -1,13 +1,30 @@
 ﻿using Auth.RepositoryContract.Entity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
-namespace Auth.AppHost.Context
+namespace Auth.RepositoryImplement.Context
 {
   public class CoreDBContext(
     DbContextOptions<CoreDBContext> options,
     IConfiguration config) : IdentityDbContext<CoreUser>(options)
   {
+    public DbSet<OtpCode> OtpCodes => Set<OtpCode>();
+
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+      base.OnModelCreating(builder);
+
+      builder.Entity<OtpCode>(entity =>
+      {
+        entity.HasKey(o => o.Id);
+        entity.Property(o => o.Email).HasMaxLength(256).IsRequired();
+        entity.Property(o => o.CodeHash).HasMaxLength(128).IsRequired();
+        entity.HasIndex(o => new { o.Email, o.Purpose });
+        entity.HasIndex(o => o.ExpiresAt);
+      });
+    }
+
     protected override void OnConfiguring(DbContextOptionsBuilder builder)
     {
       if (builder.IsConfigured)
@@ -23,7 +40,8 @@ namespace Auth.AppHost.Context
           "ConnectionStrings.Database was not found in configuration.");
       }
 
-      builder.UseSqlServer(connectionString);
+      // Migrations stay in the startup project, the DbContext lives in this assembly
+      builder.UseSqlServer(connectionString, sql => sql.MigrationsAssembly("Auth.AppHost"));
     }
   }
 }

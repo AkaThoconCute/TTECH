@@ -12,13 +12,13 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.12" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\Common\Common.Web\Common.Web.csproj" />
     <ProjectReference Include="..\Auth.BusinessImplement\Auth.BusinessImplement.csproj" />
     <ProjectReference Include="..\Auth.Controllers\Auth.Controllers.csproj" />
+    <ProjectReference Include="..\Auth.RepositoryImplement\Auth.RepositoryImplement.csproj" />
   </ItemGroup>
 
 </Project>
