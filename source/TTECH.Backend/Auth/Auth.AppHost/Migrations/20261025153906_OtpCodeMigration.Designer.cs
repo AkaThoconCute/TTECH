@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Auth.AppHost.Migrations
 {
     [DbContext(typeof(CoreDBContext))]
-    [Migration("20261025143254_OtpCodeMigration")]
+    [Migration("20261025153906_OtpCodeMigration")]
     partial class OtpCodeMigration
     {
         /// <inheritdoc />

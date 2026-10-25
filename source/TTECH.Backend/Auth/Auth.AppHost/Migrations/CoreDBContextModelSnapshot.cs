@@ -135,7 +135,7 @@ namespace Auth.AppHost.Migrations
 
                     b.HasIndex("Email", "Purpose");
 
-                    b.ToTable("OtpCodes", (string)null);
+                    b.ToTable("OtpCodes");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
