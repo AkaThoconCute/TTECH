@@ -11,6 +11,8 @@ namespace Auth.AppHost.DependencyInjection
       services.AddScoped<IUserService, UserServiceImpl>();
       services.AddScoped<ITokenService, TokenServiceImpl>();
 
+      services.AddScoped<IEmailService, EmailServiceImpl>();
+
       return services;
     }
   }
