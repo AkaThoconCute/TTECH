@@ -1,5 +1,5 @@
 using Auth.AppHost.Configuration;
-using Auth.AppHost.Context;
+using Auth.RepositoryImplement.Context;
 using Auth.AppHost.DependencyInjection;
 using Common.Web.HealthCheck;
 
@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<CoreDBContext>();
 builder.Services.AddAuthConfigs(builder.Configuration);
-builder.Services.AddDependencyInjection();
+builder.Services.AddDependencyInjection(builder.Configuration);
 builder.Services.AddControllers();
 builder.Services.AddOpenApi(); // Learn more at https://aka.ms/aspnet/openapi
 
