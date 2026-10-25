@@ -34,4 +34,24 @@ namespace Auth.BusinessContract.DTO
 
     public string Password { get; init; } = string.Empty;
   }
+
+  // SendOTPVerificationRequest
+  public class SendOTPVerificationRequest
+  {
+    [Required(ErrorMessage = "Email is required.")]
+    [EmailAddress(ErrorMessage = "Invalid email address.")]
+    public string Email { get; init; } = string.Empty;
+  }
+
+  // VerifyOTPRequest
+  public class VerifyOTPRequest
+  {
+    [Required(ErrorMessage = "Email is required.")]
+    [EmailAddress(ErrorMessage = "Invalid email address.")]
+    public string Email { get; init; } = string.Empty;
+
+    [Required(ErrorMessage = "OTP is required.")]
+    [StringLength(6, MinimumLength = 6, ErrorMessage = "OTP must be exactly 6 characters.")]
+    public string OTP { get; init; } = string.Empty;
+  }
 }
