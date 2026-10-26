@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Functions\" />
+    <Folder Include="ServiceBus\" />
+  </ItemGroup>
+
 </Project>

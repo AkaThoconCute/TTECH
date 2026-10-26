@@ -20,6 +20,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Auth.BusinessImplement\Auth.BusinessImplement.csproj" />
+    <ProjectReference Include="..\Auth.RepositoryImplement\Auth.RepositoryImplement.csproj" />
+    <ProjectReference Include="..\Auth.ToolsImplement\Auth.ToolsImplement.csproj" />
   </ItemGroup>
 
 </Project>
