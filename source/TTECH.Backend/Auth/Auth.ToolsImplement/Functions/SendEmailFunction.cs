@@ -9,10 +9,10 @@ using Microsoft.Extensions.Options;
 namespace Auth.BusinessImplement.Email
 {
   // Delivers queued emails over SMTP. Recipient addresses and bodies are never logged.
-  public class EmailDispatcher(
+  public class SendEmailFunction(
     EmailQueue queue,
     IOptions<EmailOptions> options,
-    ILogger<EmailDispatcher> logger) : BackgroundService
+    ILogger<SendEmailFunction> logger) : BackgroundService
   {
     private readonly EmailOptions _options = options.Value;
 

@@ -10,8 +10,4 @@
     <ProjectReference Include="..\Auth.ToolsContract\Auth.ToolsContract.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Event\" />
-  </ItemGroup>
-
 </Project>
