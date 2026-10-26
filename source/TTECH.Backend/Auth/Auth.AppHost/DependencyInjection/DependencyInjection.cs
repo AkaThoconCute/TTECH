@@ -3,6 +3,7 @@ using Auth.BusinessImplement.Email;
 using Auth.BusinessImplement.Jobs;
 using Auth.BusinessImplement.Options;
 using Auth.BusinessImplement.Service;
+using Auth.BusinessImplement.Tools;
 using Auth.RepositoryContract.Repository;
 using Auth.RepositoryImplement.Repository;
 

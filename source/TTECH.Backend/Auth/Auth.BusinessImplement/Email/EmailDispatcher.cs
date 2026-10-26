@@ -39,19 +39,5 @@ namespace Auth.BusinessImplement.Email
         }
       }
     }
-
-    private async Task SendAsync(EmailMessage message, CancellationToken cancellationToken)
-    {
-      using SmtpClient client = new() { Timeout = _options.TimeoutSeconds * 1000 };
-      await client.ConnectAsync(_options.Host, _options.Port, _options.SecureSocket, cancellationToken);
-
-      if (!string.IsNullOrEmpty(_options.Username))
-      {
-        await client.AuthenticateAsync(_options.Username, _options.Password ?? string.Empty, cancellationToken);
-      }
-
-      await client.SendAsync(EmailHelper.BuildMimeMessage(_options, message), cancellationToken);
-      await client.DisconnectAsync(true, cancellationToken);
-    }
   }
 }

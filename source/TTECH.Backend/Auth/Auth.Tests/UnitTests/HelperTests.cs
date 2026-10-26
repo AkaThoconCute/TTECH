@@ -1,6 +1,6 @@
 using Auth.BusinessContract.Enum;
 using Auth.BusinessImplement.Email;
-using Auth.BusinessImplement.Helper;
+using Auth.BusinessImplement.Tools.Helper;
 using MailKit.Net.Smtp;
 
 namespace Auth.Tests.UnitTests

@@ -7,6 +7,8 @@
     <Project Path="Auth/Auth.RepositoryContract/Auth.RepositoryContract.csproj" Id="bd850064-becd-4bed-a3bf-a6cfbe2c5fc7" />
     <Project Path="Auth/Auth.RepositoryImplement/Auth.RepositoryImplement.csproj" Id="932d074e-4681-4fc2-99c3-333bbdf33100" />
     <Project Path="Auth/Auth.Tests/Auth.Tests.csproj" />
+    <Project Path="Auth/Auth.ToolsContract/Auth.ToolsContract.csproj" Id="766a3244-6e05-4de6-9584-7670f9739453" />
+    <Project Path="Auth/Auth.ToolsImplement/Auth.ToolsImplement.csproj" Id="677f7893-586e-4178-bcf7-f13b92dcc957" />
   </Folder>
   <Folder Name="/Common/">
     <Project Path="Common/Common.Web/Common.Web.csproj" Id="b4afd075-6304-4d8c-af79-acb3a8e8d443" />

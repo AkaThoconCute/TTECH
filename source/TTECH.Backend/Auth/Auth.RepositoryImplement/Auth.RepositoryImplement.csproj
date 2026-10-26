@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Auth.RepositoryContract\Auth.RepositoryContract.csproj" />
+    <ProjectReference Include="..\Auth.ToolsContract\Auth.ToolsContract.csproj" />
   </ItemGroup>
 
 </Project>
