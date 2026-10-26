@@ -8,6 +8,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Auth.BusinessContract\Auth.BusinessContract.csproj" />
+    <ProjectReference Include="..\Auth.ToolsContract\Auth.ToolsContract.csproj" />
+    <ProjectReference Include="..\Auth.ToolsImplement\Auth.ToolsImplement.csproj" />
   </ItemGroup>
 
   <ItemGroup>

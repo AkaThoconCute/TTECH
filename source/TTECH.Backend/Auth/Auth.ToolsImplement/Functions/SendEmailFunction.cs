@@ -1,18 +1,20 @@
-using Auth.BusinessContract.DTO;
-using Auth.BusinessImplement.Options;
+﻿using Auth.BusinessContract.DTO;
+using Auth.ToolsContract.ServiceBus;
+using Auth.ToolsImplement.Helper;
+using Auth.ToolsImplement.Options;
 using Common.Util;
 using MailKit.Net.Smtp;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace Auth.BusinessImplement.Email
+namespace Auth.ToolsImplement.Functions
 {
   // Delivers queued emails over SMTP. Recipient addresses and bodies are never logged.
-  public class EmailDispatcher(
+  public class SendEmailFunction(
     EmailQueue queue,
     IOptions<EmailOptions> options,
-    ILogger<EmailDispatcher> logger) : BackgroundService
+    ILogger<SendEmailFunction> logger) : BackgroundService
   {
     private readonly EmailOptions _options = options.Value;
 
