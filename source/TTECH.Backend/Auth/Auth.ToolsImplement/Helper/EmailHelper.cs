@@ -1,5 +1,5 @@
-using Auth.BusinessContract.DTO;
-using Auth.BusinessImplement.Options;
+﻿using Auth.BusinessContract.DTO;
+using Auth.ToolsImplement.Options;
 using MailKit.Net.Smtp;
 using MimeKit;
 using MimeKit.Utils;
@@ -7,7 +7,7 @@ using System.Collections.Concurrent;
 using System.Net;
 using System.Text.RegularExpressions;
 
-namespace Auth.BusinessImplement.Email
+namespace Auth.ToolsImplement.Helper
 {
   // Low-level email tools: MIME building, template rendering, SMTP failure classification.
   public static partial class EmailHelper

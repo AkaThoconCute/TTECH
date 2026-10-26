@@ -1,10 +1,11 @@
-using Auth.BusinessContract.DTO;
+﻿using Auth.BusinessContract.DTO;
 using Auth.BusinessContract.Enum;
 using Auth.BusinessContract.Service;
 using Auth.BusinessImplement.Options;
 using Auth.BusinessImplement.Service;
 using Auth.RepositoryContract.Entity;
 using Auth.RepositoryContract.Repository;
+using Auth.ToolsContract.Service;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Options;

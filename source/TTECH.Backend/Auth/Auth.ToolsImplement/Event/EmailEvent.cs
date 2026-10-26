@@ -1,16 +1,13 @@
-﻿using Auth.BusinessImplement.Email;
-using System.Net.Mail;
-using System.Text.Json;
+﻿using Auth.BusinessContract.DTO;
+using Auth.ToolsContract.ServiceBus;
 
 namespace Auth.ToolsImplement.Event
 {
   public class EmailEvent(EmailQueue queue)
   {
-    public async Task ProduceAsync(
+    public ValueTask ProduceAsync(
       EmailMessage message,
       CancellationToken cancellationToken = default)
-    {
-      await queue.Writer.WriteAsync(message, cancellationToken);
-    }
+      => queue.Writer.WriteAsync(message, cancellationToken);
   }
 }

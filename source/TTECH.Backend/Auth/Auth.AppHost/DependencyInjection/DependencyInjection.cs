@@ -1,9 +1,13 @@
-using Auth.BusinessContract.Service;
-using Auth.BusinessImplement.Email;
+﻿using Auth.BusinessContract.Service;
 using Auth.BusinessImplement.Jobs;
 using Auth.BusinessImplement.Options;
 using Auth.BusinessImplement.Service;
-using Auth.BusinessImplement.Tools;
+using Auth.ToolsContract.Service;
+using Auth.ToolsContract.ServiceBus;
+using Auth.ToolsImplement.Event;
+using Auth.ToolsImplement.Functions;
+using Auth.ToolsImplement.Options;
+using Auth.ToolsImplement.Service;
 using Auth.RepositoryContract.Repository;
 using Auth.RepositoryImplement.Repository;
 
@@ -38,7 +42,8 @@ namespace Auth.AppHost.DependencyInjection
         .ValidateOnStart();
       services.AddSingleton<EmailQueue>();
       services.AddSingleton<IEmailService, EmailServiceImpl>();
-      services.AddHostedService<EmailDispatcher>();
+      services.AddSingleton<EmailEvent>();
+      services.AddHostedService<SendEmailFunction>();
 
       return services;
     }

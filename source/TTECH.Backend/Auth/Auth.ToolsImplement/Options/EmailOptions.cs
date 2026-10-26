@@ -1,7 +1,7 @@
-using MailKit.Security;
+﻿using MailKit.Security;
 using System.ComponentModel.DataAnnotations;
 
-namespace Auth.BusinessImplement.Options
+namespace Auth.ToolsImplement.Options
 {
   public class EmailOptions
   {

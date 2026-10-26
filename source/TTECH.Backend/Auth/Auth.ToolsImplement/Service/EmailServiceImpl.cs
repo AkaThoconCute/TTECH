@@ -1,9 +1,9 @@
-using Auth.BusinessContract.DTO;
-using Auth.BusinessContract.Service;
-using Auth.BusinessImplement.Email;
+﻿using Auth.BusinessContract.DTO;
+using Auth.ToolsContract.Service;
+
 using Auth.ToolsImplement.Event;
 
-namespace Auth.BusinessImplement.Tools
+namespace Auth.ToolsImplement.Service
 {
   public class EmailServiceImpl(EmailEvent emailEvent) : IEmailService
   {

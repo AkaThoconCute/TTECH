@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Auth.BusinessContract\Auth.BusinessContract.csproj" />
+  </ItemGroup>
+
 </Project>

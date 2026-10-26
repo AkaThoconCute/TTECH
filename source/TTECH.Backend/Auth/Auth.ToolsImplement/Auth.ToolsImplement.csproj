@@ -10,4 +10,9 @@
     <ProjectReference Include="..\Auth.ToolsContract\Auth.ToolsContract.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MailKit" Version="4.18.2" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="10.0.12" />
+  </ItemGroup>
+
 </Project>
