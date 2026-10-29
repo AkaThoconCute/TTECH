@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace Auth.AppHost.Controllers
+namespace Auth.Controllers
 {
   [ApiController]
   public class HealthController : ControllerBase

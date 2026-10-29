@@ -1,4 +1,4 @@
-using Auth.BusinessContract.Service;
+using Auth.BusinessContract.Services;
 using Auth.BusinessImplement.Options;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;

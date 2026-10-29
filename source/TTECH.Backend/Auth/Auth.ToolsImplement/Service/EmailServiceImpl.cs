@@ -1,4 +1,4 @@
-﻿using Auth.BusinessContract.DTO;
+﻿using Auth.BusinessContract.DTOs;
 using Auth.ToolsContract.Service;
 
 using Auth.ToolsImplement.Event;

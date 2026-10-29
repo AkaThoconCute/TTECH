@@ -1,11 +1,10 @@
-﻿using Auth.BusinessContract.DTO;
-using Auth.BusinessContract.Service;
-using Auth.BusinessImplement.Error;
+﻿using Auth.BusinessContract.DTOs;
+using Auth.BusinessContract.Services;
 using Auth.RepositoryContract.Entity;
 using Common.DTO;
 using Microsoft.AspNetCore.Identity;
 
-namespace Auth.BusinessImplement.Service
+namespace Auth.BusinessImplement.Services
 {
   public class AuthServiceImpl(
     IUserService userService,
@@ -24,14 +23,14 @@ namespace Auth.BusinessImplement.Service
       CoreUser? user = await userService.CreateUser(signUpRequest);
       if (user is null)
       {
-        return ServiceResult.FromError<TokensResponse>(Errors.SignUpFailed);
+        return ServiceResult.FromError<TokensResponse>(Errors.Errors.SignUpFailed);
       }
 
       // 3. Generate tokens
       TokensResponse? tokens = tokenService.GenerateTokenPair(user);
       if (tokens is null)
       {
-        return ServiceResult.FromError<TokensResponse>(Errors.SignUpError);
+        return ServiceResult.FromError<TokensResponse>(Errors.Errors.SignUpError);
       }
 
       return ServiceResult.FromResult(tokens);
@@ -46,7 +45,7 @@ namespace Auth.BusinessImplement.Service
       CoreUser? user = await CheckPasswordAsync(signInRequest);
       if (user is null)
       {
-        return ServiceResult.FromError<TokensResponse>(Errors.LogInFailed
+        return ServiceResult.FromError<TokensResponse>(Errors.Errors.LogInFailed
           .WithMessage("Username or Password is incorrect. Please try again."));
       }
 
@@ -54,7 +53,7 @@ namespace Auth.BusinessImplement.Service
       TokensResponse? tokens = tokenService.GenerateTokenPair(user!);
       if (tokens is null)
       {
-        return ServiceResult.FromError<TokensResponse>(Errors.LogInError);
+        return ServiceResult.FromError<TokensResponse>(Errors.Errors.LogInError);
       }
 
       return ServiceResult.FromResult(tokens!);

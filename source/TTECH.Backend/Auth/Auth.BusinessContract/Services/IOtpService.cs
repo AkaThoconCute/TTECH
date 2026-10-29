@@ -1,7 +1,7 @@
-using Auth.BusinessContract.DTO;
+using Auth.BusinessContract.DTOs;
 using Common.DTO;
 
-namespace Auth.BusinessContract.Service
+namespace Auth.BusinessContract.Services
 {
   // Purpose-scoped email OTP. Verifying a code authenticates the user and returns tokens like sign in.
   public interface IOtpService

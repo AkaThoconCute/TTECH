@@ -1,4 +1,4 @@
-﻿using Auth.BusinessContract.DTO;
+﻿using Auth.BusinessContract.DTOs;
 using System.Threading.Channels;
 
 namespace Auth.ToolsContract.ServiceBus

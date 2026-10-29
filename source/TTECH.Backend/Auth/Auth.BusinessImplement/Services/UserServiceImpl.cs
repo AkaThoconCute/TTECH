@@ -1,10 +1,10 @@
-﻿using Auth.BusinessContract.DTO;
-using Auth.BusinessContract.Enum;
-using Auth.BusinessContract.Service;
+﻿using Auth.BusinessContract.DTOs;
+using Auth.BusinessContract.Enums;
+using Auth.BusinessContract.Services;
 using Auth.RepositoryContract.Entity;
 using Microsoft.AspNetCore.Identity;
 
-namespace Auth.BusinessImplement.Service
+namespace Auth.BusinessImplement.Services
 {
   public class UserServiceImpl(
     UserManager<CoreUser> coreUserManager) : IUserService

@@ -1,8 +1,8 @@
-﻿using Auth.BusinessContract.DTO;
-using Auth.BusinessContract.Enum;
-using Auth.BusinessContract.Service;
+﻿using Auth.BusinessContract.DTOs;
+using Auth.BusinessContract.Enums;
+using Auth.BusinessContract.Services;
 using Auth.BusinessImplement.Options;
-using Auth.BusinessImplement.Service;
+using Auth.BusinessImplement.Services;
 using Auth.RepositoryContract.Entity;
 using Auth.RepositoryContract.Repository;
 using Auth.ToolsContract.Service;

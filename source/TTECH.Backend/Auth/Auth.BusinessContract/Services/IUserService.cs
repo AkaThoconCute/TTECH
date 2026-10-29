@@ -1,8 +1,8 @@
-﻿using Auth.BusinessContract.DTO;
-using Auth.BusinessContract.Enum;
+﻿using Auth.BusinessContract.DTOs;
+using Auth.BusinessContract.Enums;
 using Auth.RepositoryContract.Entity;
 
-namespace Auth.BusinessContract.Service
+namespace Auth.BusinessContract.Services
 {
   public interface IUserService
   {

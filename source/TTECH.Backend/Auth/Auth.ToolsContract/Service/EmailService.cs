@@ -1,4 +1,4 @@
-﻿using Auth.BusinessContract.DTO;
+﻿using Auth.BusinessContract.DTOs;
 
 namespace Auth.ToolsContract.Service
 {

@@ -1,5 +1,5 @@
-﻿using Auth.BusinessContract.DTO;
-using Auth.BusinessContract.Service;
+﻿using Auth.BusinessContract.DTOs;
+using Auth.BusinessContract.Services;
 using Auth.RepositoryContract.Entity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
@@ -9,7 +9,7 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Auth.BusinessImplement.Service
+namespace Auth.BusinessImplement.Services
 {
   public class TokenServiceImpl(
     UserManager<CoreUser> userManager,

@@ -1,7 +1,7 @@
-using Auth.BusinessContract.Enum;
+using Auth.BusinessContract.Enums;
 using System.ComponentModel.DataAnnotations;
 
-namespace Auth.BusinessContract.DTO
+namespace Auth.BusinessContract.DTOs
 {
   // SendOTPVerificationRequest
   public class SendOTPVerificationRequest

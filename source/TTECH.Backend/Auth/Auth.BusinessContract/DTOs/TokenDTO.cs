@@ -1,4 +1,4 @@
-﻿namespace Auth.BusinessContract.DTO
+﻿namespace Auth.BusinessContract.DTOs
 {
   public class TokensResponse
   {

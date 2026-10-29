@@ -1,9 +1,9 @@
-﻿using Auth.BusinessContract.DTO;
-using Auth.BusinessContract.Service;
+﻿using Auth.BusinessContract.DTOs;
+using Auth.BusinessContract.Services;
 using Common.DTO;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Auth.Controllers.Controllers
+namespace Auth.Controllers
 {
   [Route("api/[controller]/[action]")]
   [ApiController]

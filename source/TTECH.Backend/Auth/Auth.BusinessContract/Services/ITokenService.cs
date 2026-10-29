@@ -1,7 +1,7 @@
-﻿using Auth.BusinessContract.DTO;
+﻿using Auth.BusinessContract.DTOs;
 using Auth.RepositoryContract.Entity;
 
-namespace Auth.BusinessContract.Service
+namespace Auth.BusinessContract.Services
 {
   public interface ITokenService
   {

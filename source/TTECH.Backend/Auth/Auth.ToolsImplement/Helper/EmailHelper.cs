@@ -1,4 +1,4 @@
-﻿using Auth.BusinessContract.DTO;
+﻿using Auth.BusinessContract.DTOs;
 using Auth.ToolsImplement.Options;
 using MailKit.Net.Smtp;
 using MimeKit;

@@ -1,4 +1,4 @@
-﻿namespace Auth.BusinessContract.Enum
+﻿namespace Auth.BusinessContract.Enums
 {
   public enum TokenEnum
   {

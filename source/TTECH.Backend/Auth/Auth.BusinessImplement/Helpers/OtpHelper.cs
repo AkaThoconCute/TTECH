@@ -1,8 +1,8 @@
-using Auth.BusinessContract.Enum;
+using Auth.BusinessContract.Enums;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace Auth.BusinessImplement.Helper
+namespace Auth.BusinessImplement.Helpers
 {
   // Low-level OTP tools: normalization, code generation, hashing, comparison.
   public static class OtpHelper

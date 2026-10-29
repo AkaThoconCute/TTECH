@@ -1,9 +1,9 @@
-﻿using Auth.BusinessContract.DTO;
-using Auth.BusinessContract.Enum;
-using Auth.BusinessContract.Service;
+﻿using Auth.BusinessContract.DTOs;
+using Auth.BusinessContract.Enums;
+using Auth.BusinessContract.Services;
 using Auth.ToolsContract.Service;
-using Auth.BusinessImplement.Error;
-using Auth.BusinessImplement.Helper;
+using Auth.BusinessImplement.Errors;
+using Auth.BusinessImplement.Helpers;
 using Auth.BusinessImplement.Options;
 using Auth.RepositoryContract.Entity;
 using Auth.RepositoryContract.Repository;
@@ -13,7 +13,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace Auth.BusinessImplement.Service
+namespace Auth.BusinessImplement.Services
 {
   public class OtpServiceImpl(
     IOtpRepository otpRepository,
@@ -94,7 +94,7 @@ namespace Auth.BusinessImplement.Service
       OtpPurposeEnum purpose = verifyOTPRequest.Purpose;
       EnsureValidPurpose(purpose);
 
-      ServiceResult<TokensResponse> invalid = ServiceResult.FromError<TokensResponse>(Errors.InvalidOTP);
+      ServiceResult<TokensResponse> invalid = ServiceResult.FromError<TokensResponse>(Errors.Errors.InvalidOTP);
 
       string normalizedEmail = OtpHelper.NormalizeEmail(verifyOTPRequest.Email);
       DateTime now = timeProvider.GetUtcNow().UtcDateTime;
@@ -119,7 +119,7 @@ namespace Auth.BusinessImplement.Service
       TokensResponse? tokens = tokenService.GenerateTokenPair(user);
       if (tokens is null)
       {
-        return ServiceResult.FromError<TokensResponse>(Errors.LogInError);
+        return ServiceResult.FromError<TokensResponse>(Errors.Errors.LogInError);
       }
 
       return ServiceResult.FromResult(tokens);

@@ -1,7 +1,7 @@
 ﻿using Common.DTO;
 using Microsoft.AspNetCore.Http;
 
-namespace Auth.BusinessImplement.Error
+namespace Auth.BusinessImplement.Errors
 {
   public class Errors
   {

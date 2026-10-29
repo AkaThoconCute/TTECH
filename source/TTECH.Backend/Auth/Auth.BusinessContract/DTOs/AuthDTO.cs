@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace Auth.BusinessContract.DTO
+namespace Auth.BusinessContract.DTOs
 {
   // SignupRequest
   public class SignUpRequest
