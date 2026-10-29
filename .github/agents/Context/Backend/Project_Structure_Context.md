@@ -46,13 +46,13 @@ ModuleFolder/
 │
 ├── Module.ToolsContract/            # Infrastructure Abstractions
 │   ├── Messaging/                   # Publisher Interfaces
-│   └── Services/                     # Service Interfaces
+│   └── Services/                     # Service Interfaces (Events is DTOs at the Business layer)
 │
 ├── Module.ToolsImplement/           # Pure Infrastructure (no Azure Functions)
-│   ├── Queue/                       # In-memory Queues (DTO payloads from BusinessContract)
-│   ├── Consumers/                   # Consumer Workers
-│   ├── Jobs/                        # Job Workers
-│   ├── Messaging/                   # Concrete Publisher (enqueue/dispatch)
+│   ├── Queue/                       # In-memory Queues
+│   ├── Consumers/                   # Consumer Workers (It call Business Service method to run logic)
+│   ├── Jobs/                        # Job Workers      (It call Business Service method to run logic)
+│   ├── Messaging/                   # Concrete Publisher
 │   ├── Helpers/                     # Concrete Helpers
 │   ├── Options/                     # Config key values
 │   └── Services/                    # Concrete Services
