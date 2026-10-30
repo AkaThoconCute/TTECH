@@ -1,4 +1,4 @@
-# PROJECT STRUCTURE KNOWLEDGE
+# PROJECT STRUCTURE RULE
 
 ## 1. Core Principles
 
@@ -65,22 +65,22 @@ ModuleFolder/
 
 ## 3. File Naming
 
-| File type         | File name format       |
-| ----------------- | ---------------------- |
-| Service Interface | I{Business}Service     |
-| Service Implement | {Business}ServiceImpl |
-| DTO               | {Business}DTO          |
-| Enum              | {Business}Enum         |
-| Helper            | {Business}Helper       |
-| Option            | {Business}Option       |
-| Template          | {Business}Template     |
-| Entity            | {Entity}               |
+| File type            | File name format      |
+| -------------------- | --------------------- |
+| Service Interface    | I{Business}Service    |
+| Service Implement    | {Business}ServiceImpl |
+| DTO                  | {Business}DTO         |
+| Enum                 | {Business}Enum        |
+| Helper               | {Business}Helper      |
+| Option               | {Business}Option      |
+| Template             | {Business}Template    |
+| Entity               | {Entity}              |
 | Repository Interface | I{Business}Repository |
-| Repository Implement | {Business}Repository |
-| Controller        | {Business}Controller   |
-| Queue             | {Business}Queue        |
-| Consumer          | {Business}Consumer     |
-| Job               | {Business}Job          |
-| Publisher Interface | I{Business}Publisher |
-| Publisher Implement | {Business}Publisher  |
-| Test              | {Business}Tests        |
+| Repository Implement | {Business}Repository  |
+| Controller           | {Business}Controller  |
+| Queue                | {Business}Queue       |
+| Consumer             | {Business}Consumer    |
+| Job                  | {Business}Job         |
+| Publisher Interface  | I{Business}Publisher  |
+| Publisher Implement  | {Business}Publisher   |
+| Test                 | {Business}Tests       |
