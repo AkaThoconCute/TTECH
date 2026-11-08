@@ -46,13 +46,13 @@ ServiceFolder/
 │   └── Repository/                  # Concrete Repositories
 │
 ├── Service.ToolsContract/           # Infrastructure Abstractions
-│   └── Service/                     # Tool Service Interfaces (messages are DTOs at the Business layer)
+│   └── Services/                    # Tool Service Interfaces (messages are DTOs at the Business layer)
 │
 ├── Service.ToolsImplement/          # Pure Infrastructure (no Azure Functions)
-│   ├── Service/                     # Concrete Tool Services (command entry point, e.g. write to a Channel)
+│   ├── Services/                    # Concrete Tool Services (command entry point, e.g. write to a Channel)
 │   ├── Channels/                    # In-memory Channels (technology-named, shared by Service and Worker)
-│   ├── Worker/                      # BackgroundService workers: drain a Channel (call Business Service method to run logic)
-│   ├── Helper/                      # Concrete Helpers (static, pure)
+│   ├── Workers/                     # BackgroundService workers: drain a Channel (call Business Service method to run logic)
+│   ├── Helpers/                     # Concrete Helpers (static, pure)
 │   └── Options/                     # Config key values
 │
 └── Service.Tests/                   # Http, Unit & Integration tests
@@ -83,13 +83,13 @@ ServiceFolder/
 
 ## 4. Tools Layer Rules
 
-- **Folders are grouped by technical role** (`Service`, `Channels`, `Worker`, `Helper`, `Options`), not by feature.
+- **Folders are grouped by technical role** (`Services`, `Channels`, `Workers`, `Helpers`, `Options`), not by feature.
 - **Tools is a low layer: name by technology/role** (`Channel`, `Worker`), not by a generic word like `Queue`.
-- **One interface per capability:** the Business layer calls `I{Business}Service` in `ToolsContract/Service`. Do not add extra interfaces (sender, producer, event wrapper) for a single implementation.
+- **One interface per capability:** the Business layer calls `I{Business}Service` in `ToolsContract/Services`. Do not add extra interfaces (sender, producer, event wrapper) for a single implementation.
 - **No pass-through wrappers:** the Service writes to the Channel directly.
 - **Channel:** only the Service (writer) and the Worker (reader) use it. Registered as a singleton.
 - **Worker:** a `BackgroundService` that reads from a Channel. Delivery details (retry, transport call) stay inside the Worker and Helper; recipients and payload bodies are never logged.
 - **Contract assemblies hold only interfaces, DTOs and enums**, never concrete classes (a Channel is a concrete class, so it lives in `ToolsImplement`).
 - **Command vs event naming:**
   - A command ("do this", one handler) is named by capability: `I{Business}Service.{Action}Async`.
-  - A real domain event ("this happened", 0..n subscribers) is named `I{Business}EventPublisher` with a past-tense event DTO, placed in `ToolsContract/Service` and `BusinessContract/DTOs`.
+  - A real domain event ("this happened", 0..n subscribers) is named `I{Business}EventPublisher` with a past-tense event DTO, placed in `ToolsContract/Services` and `BusinessContract/DTOs`.
