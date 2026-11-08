@@ -7,7 +7,7 @@ Derived from the `*.csproj` references and `DependencyInjection.cs` in `source/T
 Arrow = "references" (A --> B means A depends on B).
 
 ```mermaid
-flowchart TB
+flowchart BT
   subgraph Host["Host layer"]
     AppHost["Auth.AppHost<br/>(composition root, DI, EF migrations)"]
   end
