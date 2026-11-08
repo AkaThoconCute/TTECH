@@ -1,8 +1,8 @@
-# Auth Service – Layer Reference Diagrams
+# Auth Service – Architecture Diagrams
 
 Derived from the `*.csproj` references and `DependencyInjection.cs` in `source/TTECH.Backend/Auth`.
 
-## 1. Package / Layer Diagram (compile-time project references)
+## 1. Package Diagram (compile-time project references, grouped by layer)
 
 Arrow = "references" (A --> B means A depends on B).
 
@@ -36,8 +36,6 @@ flowchart TB
     CommonWeb["Common.Web<br/>(HealthCheck)"]
   end
 
-  Tests["Auth.Tests"]
-
   AppHost --> Controllers
   AppHost --> BI
   AppHost --> RI
@@ -53,10 +51,6 @@ flowchart TB
   TI --> TC
   RI --> RC
   RI --> TC
-
-  Tests --> BI
-  Tests --> RI
-  Tests --> TI
 ```
 
 Observations:
