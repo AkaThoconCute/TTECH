@@ -1,10 +1,10 @@
 ﻿using Auth.BusinessContract.DTOs;
 using System.Threading.Channels;
 
-namespace Auth.ToolsContract.ServiceBus
+namespace Auth.ToolsImplement.Channels
 {
-  // Singleton in-memory queue shared by the producer (EmailServiceImpl) and the consumer (SendEmailFunction).
-  public class EmailQueue
+  // Singleton in-memory channel shared by the producer (EmailServiceImpl) and the consumer (EmailWorker).
+  public class EmailChannel
   {
     private readonly Channel<EmailMessage> _channel = Channel.CreateBounded<EmailMessage>(
       new BoundedChannelOptions(1000)

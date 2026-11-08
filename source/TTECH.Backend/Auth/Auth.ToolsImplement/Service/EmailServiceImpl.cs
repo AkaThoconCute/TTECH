@@ -1,15 +1,14 @@
 ﻿using Auth.BusinessContract.DTOs;
 using Auth.ToolsContract.Service;
-
-using Auth.ToolsImplement.Event;
+using Auth.ToolsImplement.Channels;
 
 namespace Auth.ToolsImplement.Service
 {
-  public class EmailServiceImpl(EmailEvent emailEvent) : IEmailService
+  public class EmailServiceImpl(EmailChannel channel) : IEmailService
   {
     public ValueTask SendEmailAsync(
       EmailMessage message,
       CancellationToken cancellationToken = default)
-      => emailEvent.ProduceAsync(message, cancellationToken);
+      => channel.Writer.WriteAsync(message, cancellationToken);
   }
 }
