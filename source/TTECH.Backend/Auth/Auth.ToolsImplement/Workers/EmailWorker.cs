@@ -1,6 +1,6 @@
 ﻿using Auth.BusinessContract.DTOs;
 using Auth.ToolsImplement.Channels;
-using Auth.ToolsImplement.Helper;
+using Auth.ToolsImplement.Helpers;
 using Auth.ToolsImplement.Options;
 using Common.Util;
 using MailKit.Net.Smtp;
@@ -8,7 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace Auth.ToolsImplement.Worker
+namespace Auth.ToolsImplement.Workers
 {
   // Delivers queued emails over SMTP. Recipient addresses and bodies are never logged.
   public class EmailWorker(

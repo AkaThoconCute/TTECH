@@ -382,7 +382,7 @@ flowchart TB
       EH[EmailHelper]
     end
     OPT["OtpOptions, EmailOptions"]
-    TPL["Resources/Templates"]
+    TPL["Templates"]
   end
   subgraph RepoC["Auth.RepositoryContract"]
     IOR[IOtpRepository]
@@ -439,7 +439,7 @@ Dependencies point inward to the contracts. `Auth.AppHost` only wires things tog
 
 **To add a new target** (for example email verification):
 1. Add a value to `OtpPurposeEnum`.
-2. Add a template file under `Resources/Templates`.
+2. Add a template file under `Templates`.
 3. Add one mapping line in `DescribePurpose`.
 
 Template placeholders are `{{name}}`. All substituted values are HTML-encoded because some come from user input, such as the full name.

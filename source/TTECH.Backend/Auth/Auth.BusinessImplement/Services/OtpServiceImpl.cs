@@ -1,13 +1,13 @@
 ﻿using Auth.BusinessContract.DTOs;
 using Auth.BusinessContract.Enums;
 using Auth.BusinessContract.Services;
-using Auth.ToolsContract.Service;
+using Auth.ToolsContract.Services;
 using Auth.BusinessImplement.Errors;
 using Auth.BusinessImplement.Helpers;
 using Auth.BusinessImplement.Options;
 using Auth.RepositoryContract.Entity;
 using Auth.RepositoryContract.Repository;
-using Auth.ToolsImplement.Helper;
+using Auth.ToolsImplement.Helpers;
 using Common.DTO;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;

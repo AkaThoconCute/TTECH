@@ -1,8 +1,8 @@
 ﻿using Auth.BusinessContract.DTOs;
-using Auth.ToolsContract.Service;
+using Auth.ToolsContract.Services;
 using Auth.ToolsImplement.Channels;
 
-namespace Auth.ToolsImplement.Service
+namespace Auth.ToolsImplement.Services
 {
   public class EmailServiceImpl(EmailChannel channel) : IEmailService
   {

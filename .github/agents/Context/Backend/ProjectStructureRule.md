@@ -57,7 +57,7 @@ ServiceFolder/
 │
 └── Service.Tests/                   # Http, Unit & Integration tests
     ├── HttpTests/                   # Http tests
-    ├── IntegrationTests/            # Integration tests
+    ├── IntegrationTests/            # Integration tests (may be empty)
     └── UnitTests/                   # Unit tests
 ```
 
@@ -70,7 +70,8 @@ ServiceFolder/
 | DTO                  | {Business}DTO         |
 | Enum                 | {Business}Enum        |
 | Helper               | {Business}Helper      |
-| Option               | {Business}Option      |
+| Options              | {Business}Options     |
+| Errors               | {Business}Errors      |
 | Template             | {Business}Template    |
 | Entity               | {Entity}              |
 | Repository Interface | I{Business}Repository |
@@ -79,7 +80,10 @@ ServiceFolder/
 | Channel              | {Business}Channel     |
 | Worker               | {Business}Worker      |
 | Job                  | {Business}Job         |
-| Test                 | {Business}Tests       |
+| Test                 | {Target}Tests         |
+
+- `{Target}` is the class or component under test, e.g. `OtpServiceTests`, `RetryUtilTests`.
+- Template folders may be empty or absent when the service has nothing for them (e.g. `IntegrationTests/`).
 
 ## 4. Tools Layer Rules
 

@@ -5,7 +5,7 @@ using Auth.BusinessImplement.Options;
 using Auth.BusinessImplement.Services;
 using Auth.RepositoryContract.Entity;
 using Auth.RepositoryContract.Repository;
-using Auth.ToolsContract.Service;
+using Auth.ToolsContract.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Extensions.Options;
