@@ -12,9 +12,9 @@ Before any task thatchanges code, read every rule file below and apply it throug
 
 | Rule | Scope |
 | ---- | ----- |
-| [Backend Rule](./Rules/BackendRule.md) | Rules of the Backend Project|
+| [Backend Rule](../Rules/BackendRule.md) | Rules of the Backend Project|
 
-When new rule files are added to `.github/agents/Rules/`, add them to this table; treat all files in that folder as binding.
+When new rule files are added to `../Rules/`, add them to this table; treat all files in that folder as binding.
 
 ## Workflow
 
