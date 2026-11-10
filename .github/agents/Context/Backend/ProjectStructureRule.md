@@ -63,24 +63,15 @@ ServiceFolder/
 
 ## 3. File Naming
 
-| File type            | File name format      |
-| -------------------- | --------------------- |
-| Service Interface    | I{Business}Service    |
-| Service Implement    | {Business}ServiceImpl |
-| DTO                  | {Business}DTO         |
-| Enum                 | {Business}Enum        |
-| Helper               | {Business}Helper      |
-| Options              | {Business}Options     |
-| Errors               | {Business}Errors      |
-| Template             | {Business}Template    |
-| Entity               | {Entity}              |
-| Repository Interface | I{Business}Repository |
-| Repository Implement | {Business}Repository  |
-| Controller           | {Business}Controller  |
-| Channel              | {Business}Channel     |
-| Worker               | {Business}Worker      |
-| Job                  | {Business}Job         |
-| Test                 | {Target}Tests         |
+| File type                | File name format                       |
+| ------------------------ | -------------------------------------- |
+| Controller               | {X}Controller                          |
+| Service, Helper          | I{X}Service, {X}ServiceImpl, {X}Helper |
+| Repository               | I{X}Repository, {X}RepositoryImpl      |
+| Entity                   | {X}                                    |
+| DTO, Enum, Constants     | {X}DTO, {X}Enum, {X}Constants          |
+| Errors, Template         | {X}Errors, {X}Template                 |
+| Channel, Worker, Options | {X}Channel, {X}Worker, {X}Options      |
+| Test                     | {X}Tests                               |
 
-- `{Target}` is the class or component under test, e.g. `OtpServiceTests`, `RetryUtilTests`.
 - Template folders may be empty or absent when the service has nothing for them (e.g. `IntegrationTests/`).
