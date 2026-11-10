@@ -84,16 +84,3 @@ ServiceFolder/
 
 - `{Target}` is the class or component under test, e.g. `OtpServiceTests`, `RetryUtilTests`.
 - Template folders may be empty or absent when the service has nothing for them (e.g. `IntegrationTests/`).
-
-## 4. Tools Layer Rules
-
-- **Folders are grouped by technical role** (`Services`, `Channels`, `Workers`, `Helpers`, `Options`), not by feature.
-- **Tools is a low layer: name by technology/role** (`Channel`, `Worker`), not by a generic word like `Queue`.
-- **One interface per capability:** the Business layer calls `I{Business}Service` in `ToolsContract/Services`. Do not add extra interfaces (sender, producer, event wrapper) for a single implementation.
-- **No pass-through wrappers:** the Service writes to the Channel directly.
-- **Channel:** only the Service (writer) and the Worker (reader) use it. Registered as a singleton.
-- **Worker:** a `BackgroundService` that reads from a Channel. Delivery details (retry, transport call) stay inside the Worker and Helper; recipients and payload bodies are never logged.
-- **Contract assemblies hold only interfaces, DTOs and enums**, never concrete classes (a Channel is a concrete class, so it lives in `ToolsImplement`).
-- **Command vs event naming:**
-  - A command ("do this", one handler) is named by capability: `I{Business}Service.{Action}Async`.
-  - A real domain event ("this happened", 0..n subscribers) is named `I{Business}EventPublisher` with a past-tense event DTO, placed in `ToolsContract/Services` and `BusinessContract/DTOs`.
