@@ -1,4 +1,4 @@
-﻿# PROJECT STRUCTURE RULE
+﻿# BACKEND PROJECT RULES
 
 ## 1. Core Principles
 
