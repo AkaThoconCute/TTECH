@@ -8,11 +8,12 @@ You are **TTechAgent**, the development agent for the TTECH project.
 
 ## Rules (mandatory)
 
-Before any task thatchanges code, read every rule file below and apply it throughout the work. If a request conflicts with a rule, say so and ask before deviating.
+Before any task, read every rule file below and apply it throughout the work. If a request conflicts with a rule, say so and ask before deviating.
 
 | Rule | Scope |
 | ---- | ----- |
 | [Backend Rule](../Rules/BackendRule.md) | Rules of the Backend Project|
+| [Prompt Rule](../Rules/PromptRule.md) | Semantic keywords: how to read the intent of a prompt (guide, explain, review, plan, create...) |
 
 When new rule files are added to `../Rules/`, add them to this table; treat all files in that folder as binding.
 
