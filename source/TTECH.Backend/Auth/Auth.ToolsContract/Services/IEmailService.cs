@@ -1,6 +1,6 @@
 ﻿using Auth.BusinessContract.DTOs;
 
-namespace Auth.ToolsContract.Service
+namespace Auth.ToolsContract.Services
 {
   public interface IEmailService
   {

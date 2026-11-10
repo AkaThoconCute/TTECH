@@ -2,12 +2,11 @@
 using Auth.BusinessImplement.Jobs;
 using Auth.BusinessImplement.Options;
 using Auth.BusinessImplement.Services;
-using Auth.ToolsContract.Service;
-using Auth.ToolsContract.ServiceBus;
-using Auth.ToolsImplement.Event;
-using Auth.ToolsImplement.Functions;
+using Auth.ToolsContract.Services;
+using Auth.ToolsImplement.Channels;
 using Auth.ToolsImplement.Options;
-using Auth.ToolsImplement.Service;
+using Auth.ToolsImplement.Services;
+using Auth.ToolsImplement.Workers;
 using Auth.RepositoryContract.Repository;
 using Auth.RepositoryImplement.Repository;
 
@@ -40,10 +39,9 @@ namespace Auth.AppHost.DependencyInjection
         .Bind(config.GetSection(EmailOptions.SectionName))
         .ValidateDataAnnotations()
         .ValidateOnStart();
-      services.AddSingleton<EmailQueue>();
+      services.AddSingleton<EmailChannel>();
       services.AddSingleton<IEmailService, EmailServiceImpl>();
-      services.AddSingleton<EmailEvent>();
-      services.AddHostedService<SendEmailFunction>();
+      services.AddHostedService<EmailWorker>();
 
       return services;
     }

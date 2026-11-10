@@ -1,86 +1,77 @@
-# PROJECT STRUCTURE RULE
+﻿# PROJECT STRUCTURE RULE
 
 ## 1. Core Principles
 
 - **Microservices:**
-  - Structure the project by independent modules
-- **Clean Artchitecture:**
-  - Structure the module by independent layers
-  - Dependency flows from the inside out
+  - Structure the system by independent services
+- **Clean Architecture:**
+  - Structure each service by independent layers
+  - Dependency flows from the outside in
 - **Dependency Inversion:**
-  - Logic is expressed through 2 layers: Constract and Implement
-  - Implement layers depend on Constract layers - no opposite
+  - Logic is expressed through 2 layers: Contract and Implement
+  - Implement layers depend on Contract layers - no opposite
 
-## 2. Standard Module Directory Template
+## 2. Standard Service Directory Template
 
 ```text
-ModuleFolder/
-├── Module.AppHost/                  # Module start up
+ServiceFolder/
+├── Service.AppHost/                 # Service start up
 │   ├── Configuration/               # Configuration Extensions
 │   ├── DependencyInjection/         # Service Extensions
 │   ├── Migrations/                  # Code First
 │   ├── Properties/                  # Launch settings
 │   └── Program.cs                   # Entry point
 │
-├── Module.BusinessContract/         # Business Abstractions
+├── Service.BusinessContract/        # Business Abstractions
 │   ├── DTOs/                        # Request & Response models
 │   ├── Enums/                       # Constant sets
 │   └── Services/                    # Service Interfaces
 │
-├── Module.BusinessImplement/        # Pure Business Logic
+├── Service.BusinessImplement/       # Pure Business Logic
 │   ├── Errors/                      # Service Error Defination
 │   ├── Helpers/                     # Concrete Helpers
+│   ├── Jobs/                        # Scheduled Jobs (BackgroundService)
 │   ├── Options/                     # Config key values
 │   ├── Services/                    # Concrete Services
 │   └── Templates/                   # Static Template Files
 │
-├── Module.Controllers/              # HTTP API Endpoints
+├── Service.Controllers/             # HTTP API Endpoints
 │
-├── Module.RepositoryContract/       # Core Abstractions
+├── Service.RepositoryContract/      # Core Abstractions
 │   ├── Entity/                      # Core Entities
 │   └── Repository/                  # Repository Interfaces
 │
-├── Module.RepositoryImplement/      # Pure Core Logic
+├── Service.RepositoryImplement/     # Pure Core Logic
 │   ├── Context/                     # EF Core Database Context
 │   └── Repository/                  # Concrete Repositories
 │
-├── Module.ToolsContract/            # Infrastructure Abstractions
-│   ├── Messaging/                   # Publisher Interfaces
-│   └── Services/                     # Service Interfaces (Events is DTOs at the Business layer)
+├── Service.ToolsContract/           # Infrastructure Abstractions
+│   └── Services/                    # Tool Service Interfaces (messages are DTOs at the Business layer)
 │
-├── Module.ToolsImplement/           # Pure Infrastructure (no Azure Functions)
-│   ├── Queue/                       # In-memory Queues
-│   ├── Consumers/                   # Consumer Workers (It call Business Service method to run logic)
-│   ├── Jobs/                        # Job Workers      (It call Business Service method to run logic)
-│   ├── Messaging/                   # Concrete Publisher
-│   ├── Helpers/                     # Concrete Helpers
-│   ├── Options/                     # Config key values
-│   └── Services/                    # Concrete Services
+├── Service.ToolsImplement/          # Pure Infrastructure (no Azure Functions)
+│   ├── Services/                    # Concrete Tool Services (command entry point, e.g. write to a Channel)
+│   ├── Channels/                    # In-memory Channels (technology-named, shared by Service and Worker)
+│   ├── Workers/                     # BackgroundService workers: drain a Channel (call Business Service method to run logic)
+│   ├── Helpers/                     # Concrete Helpers (static, pure)
+│   └── Options/                     # Config key values
 │
-└── Module.Tests/                    # Http, Unit & Integration tests
+└── Service.Tests/                   # Http, Unit & Integration tests
     ├── HttpTests/                   # Http tests
-    ├── IntegrationTests/            # Integration tests
+    ├── IntegrationTests/            # Integration tests (may be empty)
     └── UnitTests/                   # Unit tests
 ```
 
 ## 3. File Naming
 
-| File type            | File name format      |
-| -------------------- | --------------------- |
-| Service Interface    | I{Business}Service    |
-| Service Implement    | {Business}ServiceImpl |
-| DTO                  | {Business}DTO         |
-| Enum                 | {Business}Enum        |
-| Helper               | {Business}Helper      |
-| Option               | {Business}Option      |
-| Template             | {Business}Template    |
-| Entity               | {Entity}              |
-| Repository Interface | I{Business}Repository |
-| Repository Implement | {Business}Repository  |
-| Controller           | {Business}Controller  |
-| Queue                | {Business}Queue       |
-| Consumer             | {Business}Consumer    |
-| Job                  | {Business}Job         |
-| Publisher Interface  | I{Business}Publisher  |
-| Publisher Implement  | {Business}Publisher   |
-| Test                 | {Business}Tests       |
+| File type                | File name format                       |
+| ------------------------ | -------------------------------------- |
+| Controller               | {X}Controller                          |
+| Service, Helper          | I{X}Service, {X}ServiceImpl, {X}Helper |
+| Repository               | I{X}Repository, {X}RepositoryImpl      |
+| Entity                   | {X}                                    |
+| DTO, Enum, Constants     | {X}DTO, {X}Enum, {X}Constants          |
+| Errors, Template         | {X}Errors, {X}Template                 |
+| Channel, Worker, Options | {X}Channel, {X}Worker, {X}Options      |
+| Test                     | {X}Tests                               |
+
+- Template folders may be empty or absent when the service has nothing for them (e.g. `IntegrationTests/`).

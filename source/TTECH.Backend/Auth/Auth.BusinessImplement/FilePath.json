@@ -1,0 +1,4 @@
+{
+  "ResourcePath": "Templates",
+  "PasswordResetTemplatePath": "Templates/PasswordResetTemplate.html"
+}

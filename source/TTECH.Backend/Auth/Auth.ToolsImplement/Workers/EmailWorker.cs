@@ -1,6 +1,6 @@
 ﻿using Auth.BusinessContract.DTOs;
-using Auth.ToolsContract.ServiceBus;
-using Auth.ToolsImplement.Helper;
+using Auth.ToolsImplement.Channels;
+using Auth.ToolsImplement.Helpers;
 using Auth.ToolsImplement.Options;
 using Common.Util;
 using MailKit.Net.Smtp;
@@ -8,13 +8,13 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace Auth.ToolsImplement.Functions
+namespace Auth.ToolsImplement.Workers
 {
   // Delivers queued emails over SMTP. Recipient addresses and bodies are never logged.
-  public class SendEmailFunction(
-    EmailQueue queue,
+  public class EmailWorker(
+    EmailChannel queue,
     IOptions<EmailOptions> options,
-    ILogger<SendEmailFunction> logger) : BackgroundService
+    ILogger<EmailWorker> logger) : BackgroundService
   {
     private readonly EmailOptions _options = options.Value;
 

@@ -7,7 +7,7 @@ using System.Collections.Concurrent;
 using System.Net;
 using System.Text.RegularExpressions;
 
-namespace Auth.ToolsImplement.Helper
+namespace Auth.ToolsImplement.Helpers
 {
   // Low-level email tools: MIME building, template rendering, SMTP failure classification.
   public static partial class EmailHelper
@@ -51,7 +51,7 @@ namespace Auth.ToolsImplement.Helper
       => ex is not SmtpCommandException { StatusCode: >= (SmtpStatusCode)500 };
 
     private static string LoadTemplate(string templateFileName)
-      => File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "Resources", "Templates", templateFileName));
+      => File.ReadAllText(Path.Combine(AppContext.BaseDirectory, "Templates", templateFileName));
 
     [GeneratedRegex(@"\{\{(\w+)\}\}")]
     private static partial Regex PlaceholderRegex();

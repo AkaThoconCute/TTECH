@@ -1,5 +1,5 @@
 ﻿using Auth.BusinessContract.Enums;
-using Auth.ToolsImplement.Helper;
+using Auth.ToolsImplement.Helpers;
 using Auth.BusinessImplement.Helpers;
 using MailKit.Net.Smtp;
 
