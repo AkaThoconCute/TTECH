@@ -28,7 +28,7 @@ namespace Auth.BusinessImplement.Options
     public int CleanupRetentionHours { get; init; } = 24;
 
     [Required]
-    public string SystemName { get; init; } = "TTECH";
+    public string SystemName { get; init; } = "Cerberus";
 
     [Required]
     public string SupportUrl { get; init; } = "https://example.com/support";

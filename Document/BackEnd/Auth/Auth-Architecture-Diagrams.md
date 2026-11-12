@@ -1,6 +1,6 @@
 # Auth Service – Architecture Diagrams
 
-Derived from the `*.csproj` references and `DependencyInjection.cs` in `source/TTECH.Backend/Auth`.
+Derived from the `*.csproj` references and `DependencyInjection.cs` in `source/Cerberus.Backend/Auth`.
 
 ## 1. Package Diagram (compile-time project references, grouped by layer)
 

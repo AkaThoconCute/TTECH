@@ -56,7 +56,7 @@ namespace Auth.Tests.UnitTests
     {
       string html = EmailHelper.RenderTemplate(
         "PasswordResetTemplate.html",
-        new Dictionary<string, string> { ["client_name"] = "<script>", ["system_name"] = "TTECH" });
+        new Dictionary<string, string> { ["client_name"] = "<script>", ["system_name"] = "Cerberus" });
 
       Assert.Contains("&lt;script&gt;", html);
       Assert.DoesNotContain("{{client_name}}", html);

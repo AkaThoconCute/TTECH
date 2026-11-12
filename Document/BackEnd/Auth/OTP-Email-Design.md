@@ -4,7 +4,7 @@ Email OTP lets a user prove control of an email address and sign in with a one-t
 
 This document goes **from feature to detail**: what the system does (section 1), how each of the four features works (sections 2 to 5), then the shared design behind them (section 6) and the rules and limits (section 7).
 
-Source root: [`source/TTECH.Backend/Auth`](../../../source/TTECH.Backend/Auth)
+Source root: [`source/Cerberus.Backend/Auth`](../../../source/Cerberus.Backend/Auth)
 
 ---
 
@@ -126,11 +126,11 @@ sequenceDiagram
 
 | Part | Where |
 |---|---|
-| Endpoint | [`OtpController.Send`](../../../source/TTECH.Backend/Auth/Auth.Controllers/Controllers/OtpController.cs) |
-| Logic | [`OtpServiceImpl.SendAsync`](../../../source/TTECH.Backend/Auth/Auth.BusinessImplement/Service/OtpServiceImpl.cs): `IsThrottled`, `DescribePurpose` and `BuildEmail` hold the business rules |
-| Low-level tools | [`OtpHelper`](../../../source/TTECH.Backend/Auth/Auth.BusinessImplement/Helper/OtpHelper.cs) (normalize, generate, hash) and [`EmailHelper.RenderTemplate`](../../../source/TTECH.Backend/Auth/Auth.BusinessImplement/Email/EmailHelper.cs) |
-| Storage | [`OtpRepository`](../../../source/TTECH.Backend/Auth/Auth.RepositoryImplement/Repository/OtpRepository.cs): `GetAsync`, `ReplaceAsync`, `DeleteAsync` |
-| Queue entry | [`EmailServiceImpl`](../../../source/TTECH.Backend/Auth/Auth.BusinessImplement/Email/EmailServiceImpl.cs) writes to [`EmailQueue`](../../../source/TTECH.Backend/Auth/Auth.BusinessImplement/Email/EmailQueue.cs) |
+| Endpoint | [`OtpController.Send`](../../../source/Cerberus.Backend/Auth/Auth.Controllers/Controllers/OtpController.cs) |
+| Logic | [`OtpServiceImpl.SendAsync`](../../../source/Cerberus.Backend/Auth/Auth.BusinessImplement/Service/OtpServiceImpl.cs): `IsThrottled`, `DescribePurpose` and `BuildEmail` hold the business rules |
+| Low-level tools | [`OtpHelper`](../../../source/Cerberus.Backend/Auth/Auth.BusinessImplement/Helper/OtpHelper.cs) (normalize, generate, hash) and [`EmailHelper.RenderTemplate`](../../../source/Cerberus.Backend/Auth/Auth.BusinessImplement/Email/EmailHelper.cs) |
+| Storage | [`OtpRepository`](../../../source/Cerberus.Backend/Auth/Auth.RepositoryImplement/Repository/OtpRepository.cs): `GetAsync`, `ReplaceAsync`, `DeleteAsync` |
+| Queue entry | [`EmailServiceImpl`](../../../source/Cerberus.Backend/Auth/Auth.BusinessImplement/Email/EmailServiceImpl.cs) writes to [`EmailQueue`](../../../source/Cerberus.Backend/Auth/Auth.BusinessImplement/Email/EmailQueue.cs) |
 
 ---
 
@@ -256,7 +256,7 @@ flowchart TD
 
 | Part | Where |
 |---|---|
-| Schedule | [`OtpCleanupJob`](../../../source/TTECH.Backend/Auth/Auth.BusinessImplement/Jobs/OtpCleanupJob.cs) (`BackgroundService` plus `PeriodicTimer`) |
+| Schedule | [`OtpCleanupJob`](../../../source/Cerberus.Backend/Auth/Auth.BusinessImplement/Jobs/OtpCleanupJob.cs) (`BackgroundService` plus `PeriodicTimer`) |
 | Logic | `IOtpService.CleanupExpiredAsync` |
 | Storage | `OtpRepository.DeleteOlderThanAsync` |
 
@@ -317,11 +317,11 @@ sequenceDiagram
 
 | Part | Where |
 |---|---|
-| Producer contract | `IEmailService` and `EmailMessage` ([`EmailDTO.cs`](../../../source/TTECH.Backend/Auth/Auth.BusinessContract/DTO/EmailDTO.cs)) |
+| Producer contract | `IEmailService` and `EmailMessage` ([`EmailDTO.cs`](../../../source/Cerberus.Backend/Auth/Auth.BusinessContract/DTO/EmailDTO.cs)) |
 | Queue | `EmailQueue` (singleton) and `EmailServiceImpl` |
-| Consumer | [`EmailDispatcher`](../../../source/TTECH.Backend/Auth/Auth.BusinessImplement/Email/EmailDispatcher.cs) (`BackgroundService`) |
+| Consumer | [`EmailDispatcher`](../../../source/Cerberus.Backend/Auth/Auth.BusinessImplement/Email/EmailDispatcher.cs) (`BackgroundService`) |
 | Tools | `EmailHelper` (MIME building, template rendering, failure classification) |
-| Generic retry | [`RetryUtil`](../../../source/TTECH.Backend/Common/Common/Util/RetryUtil.cs) in `Common.Util`. It takes the operation as a parameter and knows nothing about email. |
+| Generic retry | [`RetryUtil`](../../../source/Cerberus.Backend/Common/Common/Util/RetryUtil.cs) in `Common.Util`. It takes the operation as a parameter and knows nothing about email. |
 | SMTP library | MailKit |
 
 ---
@@ -454,7 +454,7 @@ Template placeholders are `{{name}}`. All substituted values are HTML-encoded be
 | | `ResendCooldownSeconds` | 60 | Minimum gap between codes |
 | | `CleanupIntervalMinutes` | 60 | How often the cleanup job runs |
 | | `CleanupRetentionHours` | 24 | How long expired rows are kept |
-| | `SystemName`, `SupportUrl` | "TTECH", placeholder | Shown in the email |
+| | `SystemName`, `SupportUrl` | "Cerberus", placeholder | Shown in the email |
 | `Email` | `Host`, `Port` | none, required / 587 | SMTP server |
 | | `SecureSocket` | `StartTls` | `StartTls`, `SslOnConnect`, or `None` for local catch-all servers |
 | | `Username`, `Password` | empty | Optional. Use user-secrets or environment variables. |
