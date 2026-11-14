@@ -3,7 +3,7 @@
 
 ## 1. Introduction
 
-Cerberus is a central authentication app service and support multi frameworks. Users sign up, sign in, access their account securely.
+Cerberus is a central authentication service. It lets users sign up, sign in, verify and access their accounts securely, with implementations across multiple frameworks.
 
 Cerberus has 2 sub-projects:
 
@@ -11,6 +11,3 @@ Cerberus has 2 sub-projects:
 | --- | --- |
 | [Spring Boot Security](./SpringBootSecurity) | Spring Boot Security |
 | [ASP.NET](./ASP.NET) | ASP.NET Identity |
-
-
-## 2.
